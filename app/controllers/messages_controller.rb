@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @message = Message.new(message_params)
     if @message.save
+      @contact.messages << @message
       flash[:notice] = "Message sent!"
       redirect_to contact_message_path(@contact, @message)
     else
