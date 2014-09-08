@@ -6,11 +6,11 @@
   </ul>
 <% end %>
 
-<%= form_for @message do |f| %>
+<%= form_for [@contact, @message] do |f| %>
   <%= f.label :to %>
-  <%= f.text_field :to %>
+  <%= f.collection_select :to, Contact.all, :phone, :name %>
   <%= f.label :from %>
-  <%= f.text_field :from %>
+  <%= f.text_field :from, value: "3237391269" %>
   <%= f.label :body %>
   <%= f.text_area :body %>
   <%= f.submit %>

@@ -1,6 +1,7 @@
 class Message < ActiveRecord::Base
   before_create :send_message
-
+  has_many :recipients
+  has_many :contacts, through: :recipients
 private
 
   def send_message
