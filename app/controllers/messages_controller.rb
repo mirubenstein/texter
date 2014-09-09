@@ -19,8 +19,12 @@ class MessagesController < ApplicationController
         @contact.messages << @message
       end
     end
+    if @message.errors.any?
+      render 'new'
+    else
         flash[:notice] = "Message sent!"
         redirect_to contact_message_path(@contact, @message)
+    end
   end
 
   def show
@@ -30,6 +34,6 @@ class MessagesController < ApplicationController
 
 private
   def message_params
-    params.require(:message).permit({:to => []}, :from, :body)
+    params.require(:message).permit({:to => []}, :from, :body, :mediaUrl)
   end
 end

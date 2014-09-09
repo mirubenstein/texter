@@ -16,4 +16,5 @@
 /tmp
 
 # Ignore Twilio info.
-.env
+.env.development
+.env.test
