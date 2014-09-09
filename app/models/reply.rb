@@ -1,4 +1,4 @@
-class Reply
+class Reply < ActiveRecord::Base
 
   def self.auto_reply(incoming_phone_number)
     RestClient::Request.new(
@@ -10,7 +10,6 @@ class Reply
                     :To => incoming_phone_number,
                     :From => '13237391269' }
     ).execute
-    binding.pry
   end
 
 end

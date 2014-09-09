@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def index
+    @replies = Reply.all
     @messages = Message.all
   end
 
