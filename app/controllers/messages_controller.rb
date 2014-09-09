@@ -19,8 +19,12 @@ class MessagesController < ApplicationController
         @contact.messages << @message
       end
     end
-        flash[:notice] = "Message sent!"
-        redirect_to contact_message_path(@contact, @message)
+    if @message.errors.any?
+      render 'new'
+    else
+      flash[:notice] = "Message sent!"
+      redirect_to contact_message_path(@contact, @message)
+    end
   end
 
   def show
