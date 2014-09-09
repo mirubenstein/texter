@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for [@contact, @message] do |f| %>
+<%= form_for @message do |f| %>
   <%= f.label :to %>
   <%= f.collection_check_boxes(:to, Contact.all, :phone, :name, multiple: true) %>
   <%= f.label :from %>
