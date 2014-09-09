@@ -8,10 +8,13 @@
 
 <%= form_for [@contact, @message] do |f| %>
   <%= f.label :to %>
-  <%= f.collection_select :to, Contact.all, :phone, :name %>
+  <%= f.collection_check_boxes(:to, Contact.all, :phone, :name, multiple: true) %>
   <%= f.label :from %>
   <%= f.text_field :from, value: "3237391269" %>
   <%= f.label :body %>
   <%= f.text_area :body %>
   <%= f.submit %>
 <% end %>
+
+
+
